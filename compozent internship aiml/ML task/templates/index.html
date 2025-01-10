@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Title Prediction</title>
+</head>
+<body>
+    <h1>Predict Movie Title Based on Features</h1>
+    <form method="POST" action="/predict">
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" required><br><br>
+        
+        <label for="director">Director:</label>
+        <input type="text" id="director" name="director" required><br><br>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required><br><br>
+
+        <label for="release_year">Release Year:</label>
+        <input type="text" id="release_year" name="release_year" required><br><br>
+
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" name="rating" required><br><br>
+
+        <input type="submit" value="Predict Title">
+    </form>
+    
+    {% if prediction %}
+        <h3>Predicted Title Value: {{ prediction }}</h3>
+    {% endif %}
+    
+    {% if error %}
+        <h3 style="color: red;">Error: {{ error }}</h3>
+    {% endif %}
+</body>
+</html>
